@@ -1,0 +1,545 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/** --------------- Css Reset --------------- **/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --hue-1: 264;
+  --hue-2: 47;
+  --main-color-1: hsl(var(--hue-1), 100%, 60%);
+  --main-color-dark-1: hsl(var(--hue-1), 69%, 50%);
+  --main-color-2: hsl(var(--hue-2), 100%, 61%);
+  --main-color-dark-2: hsl(var(--hue-2), 82%, 55%);
+  --section-padding: 7rem;
+}
+
+body {
+  --bg-color: hsl(var(--hue-1), 100%, 97%);
+  --bg-color-1: hsl(var(--hue-1), 100%, 95.5%);
+  --bg-color-2: #fff;
+  --bg-color-3: hsl(var(--hue-1), 100%, 98%);
+  --bg-color-transparent: rgba(255, 255, 255, 0.6);
+  --heading-color: hsl(var(--hue-1), 61%, 24%);
+  --text-color: hsl(var(--hue-1), 17%, 63%);
+}
+
+body.dark {
+  --bg-color: hsl(var(--hue-1), 19%, 15%);
+  --bg-color-1: hsl(var(--hue-1), 21%, 11%);
+  --bg-color-2: hsl(var(--hue-1), 23%, 19%);
+  --bg-color-3: hsl(var(--hue-1), 23%, 24%);
+  --bg-color-transparent: hsla(var(--hue-1), 23%, 19%, 0.6);
+  --heading-color: hsl(var(--hue-1), 100%, 95%);
+  --text-color: hsl(var(--hue-1), 14%, 51%);
+}
+
+*,
+*::before,
+*::after {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/** --------------- Default Styling --------------- **/
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Poppins", "Roboto", "Google Sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, serif;
+  line-height: 1.5;
+  letter-spacing: 0.14ch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+}
+
+::selection {
+  background-color: hsla(var(--hue-1), 100%, 60%, 0.9);
+  color: #fff;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3,
+h4,
+strong,
+.strong {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+h5,
+h6 {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+p {
+  max-width: 46ch;
+}
+
+/** --------------- Reusable CSS Code --------------- **/
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.logo {
+  line-height: 120px;
+  font-family: "Abril Fatface", "Poppins", "Roboto", "Google Sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, serif;
+  font-size: 1.5rem;
+  color: var(--heading-color);
+  letter-spacing: 1.2px;
+}
+
+.logo__highlight {
+  color: var(--main-color-1);
+}
+
+.sub-heading {
+  color: var(--heading-color);
+  text-transform: uppercase;
+  font-size: .85rem;
+  speak-as: .5px;
+  border-left: 3px solid var(--main-color-2);
+  padding: .13rem .75rem;
+}
+
+.heading {
+  color: var(--heading-color);
+  font-weight: 500;
+  font-size: 3rem;
+  font-family: "Abril Fatface", "Poppins", "Roboto", "Google Sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, serif;
+}
+
+.text {
+  color: var(--text-color);
+}
+
+/** --------------- Navbar Styling --------------- **/
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: background-color 456ms ease-in-out, box-shadow 456ms ease-in-out;
+}
+
+.header__scrolled {
+  background-color: var(--bg-color-transparent);
+  box-shadow: 0 5px 20px 0.1px #0000001a;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.nav.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav__logo {
+  margin-right: 24px;
+  height: 120px;
+  line-height: 120px;
+  transition: height 456ms ease-in-out, line-height 456ms ease-in-out;
+}
+
+.header__scrolled .logo {
+  height: 80px;
+  line-height: 80px;
+}
+
+.nav__links {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav__link {
+  position: relative;
+  display: inline-block;
+  margin: 0 1rem;
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: .5px;
+  color: var(--text-color);
+  font-weight: 500;
+  opacity: 0.9;
+  transition: color 300ms ease-in-out;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--main-color-1);
+  bottom: 0;
+  left: -5px;
+  z-index: -1;
+  opacity: 0;
+  transition: width 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+.nav__link:hover {
+  color: var(--heading-color);
+}
+
+.nav__link:hover::after {
+  width: 100%;
+  opacity: 0.2;
+}
+
+.toggle__btn {
+  color: var(--heading-color);
+  min-width: 40px;
+  height: 40px;
+  background-color: var(--bg-color-2);
+  border-radius: 50%;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px 0px #00000031;
+  transition: filter 300ms ease-in-out;
+}
+
+.toggle__btn:hover {
+  filter: brightness(97%);
+}
+
+/** --------------- Showcase Area Styling --------------- **/
+
+.showcase {
+  position: relative;
+  padding: 120px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.showcase .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: calc(100vh - 120px);
+  max-height: 620px;
+}
+
+.showcase .sub-heading {
+  font-size: .75rem;
+}
+
+.showcase .heading {
+  font-size: 3.5rem;
+}
+
+.showcase .text {
+  margin: .8rem 0;
+}
+
+.call-to-action {
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.call-to-action .btn {
+  margin-right: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: .9rem 1.75rem;
+  border-radius: 1rem;
+  background-color: var(--main-color-1);
+  color: #fff;
+  letter-spacing: .4px;
+  text-transform: capitalize;
+  transition: background-color 300ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--main-color-dark-1);
+}
+
+.btn.btn-secondary {
+  position: relative;
+  background-color: transparent;
+  color: var(--main-color-1);
+  font-weight: 500;
+  font-size: .9rem;
+  letter-spacing: 0;
+  border-bottom: 3px solid var(--main-color-2);
+  border-radius: 0;
+  padding: 3px 0;
+}
+
+.btn.btn-secondary::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--main-color-1);
+  transition: width 400ms ease-in-out;
+}
+
+.btn.btn-secondary:hover::before {
+  width: 100%;
+}
+
+.showcase__image {
+  position: relative;
+  width: 100%;
+  min-height: calc(100% - 120px);
+  background-color: var(--main-color-1);
+  background-image: linear-gradient(124deg, var(--main-color-1) 53%, var(--main-color-2) 53%);
+  margin-top: -120px;
+  border-radius: 0 0 80px 80px;
+}
+
+.showcase__image .person {
+  position: absolute;
+  width: 95%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.dots {
+  width: 112px;
+}
+
+.square {
+  width: 70px;
+}
+
+.showcase .circle {
+  position: absolute;
+  width: 190px;
+  left: 0;
+  top: 80%;
+  transform: translate(-50%, -50%);
+}
+
+.showcase .dots {
+  position: absolute;
+  left: 100%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.showcase .square {
+  position: absolute;
+  left: 25%;
+  bottom: 120px;
+  transform: translate(-50%, -50%);
+}
+
+/** --------------- About Section Styling --------------- **/
+
+
+
+/** --------------- Skills Section Styling --------------- **/
+
+
+
+/** --------------- Services Section Styling --------------- **/
+
+
+
+/** --------------- Portfolio Section Styling --------------- **/
+
+
+
+/** --------------- Testimonials Section Styling --------------- **/
+
+
+
+/** --------------- Contact Section Styling --------------- **/
+
+
+
+/** --------------- Subscription Section Styling --------------- **/
+
+
+
+/** --------------- Footer Styling --------------- **/
+
+
+
+/** --------------- Media Queries --------------- **/
+
+@media (max-width: 1000px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 500px) {}
