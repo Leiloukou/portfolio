@@ -209,13 +209,12 @@ prevBtn.addEventListener('click', () => {
 });
 
 nextBtn.addEventListener('click', () => {
-	if (currentIndex >= images.length - 1) {
-		currentIndex = 0 - 1;
+	if (currentIndex === (images.length - 1)) {
+		currentIndex = 0;
 	} else {
 		currentIndex++;
 	}
 
-	currentIndex++;
 	changeImage(currentIndex);
 });
 
