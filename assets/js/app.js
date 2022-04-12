@@ -6,6 +6,20 @@ const firstSkill = document.querySelector('.skill:first-child');
 const skCounters = document.querySelectorAll('.counter span');
 const progressBars = document.querySelectorAll('.skills circle');
 
+const ml = document.querySelector('.milestones')
+const mlCounters = document.querySelectorAll('.number span')
+
+const updateCount = (num, maxNum) => {
+    let currentNum = +num.innerText;
+    
+    if (currentNum < maxNum) {
+        num.innerText = currentNum + 1;
+        setTimeout(() => {
+            updateCount(num, maxNum);
+        }, 12);
+    };
+};
+
 /* --------------- Sticky Navbar --------------- */
 
 const stickyNavbar = () => {
@@ -14,12 +28,13 @@ const stickyNavbar = () => {
 
 stickyNavbar();
 
-setTimeout(() => !skillsPlayed ? skillsCounter() : '', 100);
+setTimeout(() => {!skillsPlayed ? skillsCounter() : '';mlPlayed ? skillsCounter() : '';}, 100);
 
 window.addEventListener('scroll', e => {
     stickyNavbar();
-
+    
     if (!skillsPlayed) skillsCounter();
+    if (!mlPlayed) mlCounter();
 });
 
 /* --------------- Reveal Animation --------------- */
@@ -48,6 +63,43 @@ sr.reveal('.showcase__image', {
     delay: 891,
 });
 
+sr.reveal('.srv__card', {
+    origin: 'top',
+    delay: 1000,
+});
+
+sr.reveal(
+	'.srv__card:nth-of-type(2)',
+	{
+		origin: 'right',
+		delay: 200
+	}
+);
+
+sr.reveal(
+	'.srv__card:nth-of-type(3)',
+	{
+		origin: 'left',
+		delay: 0
+	}
+);
+
+sr.reveal(
+	'.srv__card:nth-of-type(4)',
+	{
+		origin: 'top',
+		delay: 500
+	}
+);
+
+sr.reveal(
+	'.srv__card:last-of-type',
+	{
+		origin: 'bottom',
+		delay: 1250
+	}
+);
+
 /* --------------- Skills Progress Bar Animation --------------- */
 
 const hasReached = el => {
@@ -55,17 +107,6 @@ const hasReached = el => {
 
     if (window.innerHeight >= topPosition + el.offsetHeight) return true;
     return false;
-};
-
-const updateCount = (num, maxNum) => {
-    let currentNum = +num.innerText;
-
-    if (currentNum < maxNum) {
-        num.innerText = currentNum + 1;
-        setTimeout(() => {
-            updateCount(num, maxNum);
-        }, 12);
-    };
 };
 
 let skillsPlayed = false;
@@ -92,6 +133,24 @@ const skillsCounter = () => {
 })};
 
 /* --------------- Services Counter Animation --------------- */
+
+let mlPlayed = false;
+
+const mlCounter = () => {
+    if (!hasReached(ml)) return;
+
+    mlPlayed = true;
+
+    mlCounters.forEach(ctr => {
+        // @ts-ignore
+        let target = +ctr.dataset.target;
+        
+        setTimeout(() => {
+            updateCount(ctr, target);
+        }, 500);
+    });
+};
+
 
 /* --------------- Portfolio Filter Animation --------------- */
 
