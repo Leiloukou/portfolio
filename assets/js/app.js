@@ -223,7 +223,18 @@ const changeImage = (index) => {
 	images[index].classList.add('show-image');
 };
 
-/* --------------- Modal Pop Up Animation Animation --------------- */
+/* --------------- Testimonials Swiper Functionality --------------- */
+
+// @ts-ignore
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  speed: 500,
+  autoplay: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
 
 /* --------------- Change Active Link On Scroll --------------- */
 
